@@ -6,12 +6,12 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/02/10 11:34:46 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/04/15 16:56:47 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:36:58 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/get_next_line.h"
-# define BUFFER_SIZE 10
+#define BUFFER_SIZE 10
 
 int		ft_failed(char *buf)
 {

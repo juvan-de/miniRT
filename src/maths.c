@@ -6,13 +6,13 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/10 19:53:59 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/05/25 14:12:36 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:31:39 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 
-double	get_derivative(t_vector a, t_vector b)
+double		get_derivative(t_vector a, t_vector b)
 {
 	double dv;
 
@@ -20,12 +20,12 @@ double	get_derivative(t_vector a, t_vector b)
 	return (dv);
 }
 
-double	pythagoras(double a, double b)
+double		pythagoras(double a, double b)
 {
 	return (sqrt((a * a) + (b * b)));
 }
 
-double	d3d_distance(t_vector a, t_vector b)
+double		d3d_distance(t_vector a, t_vector b)
 {
 	double	temp;
 
@@ -33,7 +33,7 @@ double	d3d_distance(t_vector a, t_vector b)
 	return (pythagoras(temp, b.z - a.z));
 }
 
-double	dotproduct(t_vector a, t_vector b)
+double		dotproduct(t_vector a, t_vector b)
 {
 	return (a.x * b.x + (a.y * b.y) + (a.z * b.z));
 }

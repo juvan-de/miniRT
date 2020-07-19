@@ -6,7 +6,7 @@
 #    By: juvan-de <juvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/10/28 12:24:37 by juvan-de      #+#    #+#                  #
-#    Updated: 2020/07/17 14:13:08 by julesvander   ########   odam.nl          #
+#    Updated: 2020/07/18 13:55:28 by julesvander   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ INCLUDES = libft.h
 
 CFLAGS = -Wall -Werror -Wextra
 
-.PHONY: all $(NAME) clean fclean re
 
 all: $(NAME)
 
@@ -58,3 +57,5 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

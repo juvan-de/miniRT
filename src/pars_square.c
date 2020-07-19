@@ -6,7 +6,7 @@
 /*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:39 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/15 17:24:46 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:43:24 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ t_color		new_color(int r, int g, int b)
 
 t_color		rgb_from_scene(char *input)
 {
-	int	temp;
-	int	temp2;
+	int		temp;
+	int		temp2;
 	t_color	res;
 
 	temp = ft_atoi(input);
@@ -42,19 +42,31 @@ t_color		rgb_from_scene(char *input)
 	return (res);
 }
 
-void	pars_square(char *line, t_data *data)
+void		fill_square(t_object *temp, char **input)
 {
-	char		**input;
-	t_object	*temp;
-
-	input = ft_split(line, ' ');
-	temp = malloc(sizeof(t_object));
 	temp->type = "sq";
 	temp->cords = ft_vector_from_scene(input[1]);
 	temp->vector = normalize_vector(ft_vector_from_scene(input[2]));
 	temp->size = ft_atoi_float(input[3]);
 	temp->color = rgb_to_int(input[4]);
-	temp->next = 0;
+	temp->next = 0;	
+}
+
+void		pars_square(char *line, t_data *data)
+{
+	char		**input;
+	t_object	*temp;
+
+	input = ft_split(line, ' ');
+	if (arr_len(input) != 5)
+	{
+		free(input);
+		return (exit_free(data, "Incorrect number of arguments."));
+	}
+	temp = malloc(sizeof(t_object));
+	if (!temp)
+		return (exit_free(data, "Malloc failed for Square"));
+	fill_square(temp, input);
 	object_add_back(&data, temp);
 	ft_free_array(input);
 	if (temp->cords.x == INFINITY)

@@ -6,7 +6,7 @@
 /*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 16:13:23 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/16 20:20:46 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:57:31 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 #include "../inc/minirt.h"
 #include "../mlx/mlx.h"
 
-int		ft_error(char *message)
+int			ft_error(char *message)
 {
 	ft_putstr_fd(message, 1);
 	return (0);
 }
 
-int		check_filename(char *name)
+static int		check_filename(char *name)
 {
 	int	i;
 
@@ -32,7 +32,7 @@ int		check_filename(char *name)
 		return (ft_error("wrong filename\n"));
 }
 
-void		check_input(char *filename, t_data *data)
+static void	check_input(char *filename, t_data *data)
 {
 	int		fd;
 	char	*file;
@@ -40,6 +40,8 @@ void		check_input(char *filename, t_data *data)
 
 	ret = 1;
 	fd = open(filename, O_RDONLY);
+	if (fd < 0)
+		return ((void)ft_error("Failed to open file."));
 	while (ret == 1)
 	{
 		ret = get_next_line(fd, &file);
@@ -55,7 +57,7 @@ void		check_input(char *filename, t_data *data)
 		return (exit_free(data, "No camera set."));
 }
 
-int		main(int argc, char **argv)
+int			main(int argc, char **argv)
 {
 	t_data	data;
 
@@ -70,9 +72,7 @@ int		main(int argc, char **argv)
 		mlx_loop(data.mlx.mlx);
 	}
 	else if (ft_strncmp("--save", argv[2], ft_strlen(argv[2])) == 0)
-	{
 		save_bmp(&data);
-	}
 	else
 		exit_free(&data, "Wrong argument");
 	return (0);

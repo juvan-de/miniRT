@@ -6,7 +6,7 @@
 /*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:55:31 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/17 14:20:50 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:43:50 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ void		calc_res_triangle(t_ray_res *res, t_ray *ray, t_object *triangle)
 {
 	t_vector	vec[2];
 
-	res->cords = vec_addition(ray->origin, vec_double_mult(ray->direction, res->len));
+	res->cords = vec_addition(ray->origin,
+				vec_double_mult(ray->direction, res->len));
 	res->color = int_to_rgb(triangle->color);
 	vec[0] = vec_sub(triangle->cords, triangle->second_cord);
 	vec[1] = vec_sub(triangle->cords, triangle->third_cord);
@@ -26,7 +27,8 @@ void		calc_res_triangle(t_ray_res *res, t_ray *ray, t_object *triangle)
 	res->object = triangle;
 }
 
-int			inside_out_test(double len, t_object *triangle, t_ray *ray, t_vector normal)
+int			inside_out_test(double len, t_object *triangle,
+							t_ray *ray, t_vector normal)
 {
 	t_vector	edge[3];
 	t_vector	c[3];

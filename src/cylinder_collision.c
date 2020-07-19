@@ -6,14 +6,14 @@
 /*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:06:17 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/17 14:29:16 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:35:52 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 #include <math.h>
 
-static double		check_cylinder_collision_one(t_ray *ray, t_object *cylinder)
+static double	check_cylinder_collision_one(t_ray *ray, t_object *cylinder)
 {
 	t_vector	b[2];
 	t_vector	delta_p;
@@ -22,8 +22,10 @@ static double		check_cylinder_collision_one(t_ray *ray, t_object *cylinder)
 	double		discriminant;
 
 	delta_p = vec_sub(ray->origin, cylinder->cords);
-	b[0] = vec_sub(ray->direction, vec_double_mult(cylinder->vector, dotproduct(ray->direction, cylinder->vector)));
-	b[1] = vec_sub(delta_p, vec_double_mult(cylinder->vector, dotproduct(delta_p, cylinder->vector)));
+	b[0] = vec_sub(ray->direction, vec_double_mult(cylinder->vector,
+					dotproduct(ray->direction, cylinder->vector)));
+	b[1] = vec_sub(delta_p, vec_double_mult(cylinder->vector,
+					dotproduct(delta_p, cylinder->vector)));
 	abc[0] = 2 * dotproduct(b[0], b[1]);
 	abc[1] = vec_squared(b[1]) - pow(cylinder->size, 2);
 	discriminant = pow(abc[0], 2) - 4 * vec_squared(b[0]) * abc[1];
@@ -34,12 +36,13 @@ static double		check_cylinder_collision_one(t_ray *ray, t_object *cylinder)
 		t[0] = (-1 * abc[0] + sqrt(discriminant)) / (2 * vec_squared(b[0]));
 		t[1] = (-1 * abc[0] - sqrt(discriminant)) / (2 * vec_squared(b[0]));
 	}
-	if (t[0] > t[1])
+	if (t[0] > t[1] && t[1] > 0)
 		return (t[1]);
 	return (t[0]);
 }
 
-static double		check_disk_collision(t_ray *ray, t_object *cylinder, t_vector *disk)
+static double	check_disk_collision(t_ray *ray, t_object *cylinder,
+										t_vector *disk)
 {
 	t_object	temp;
 	double		intersect;
@@ -64,7 +67,7 @@ static double		check_disk_collision(t_ray *ray, t_object *cylinder, t_vector *di
 	return (INFINITY);
 }
 
-double		check_cylinder_collision(t_ray *ray, t_object *cylinder)
+double			check_cylinder_collision(t_ray *ray, t_object *cylinder)
 {
 	double		res[2];
 	t_vector	disk[2];
@@ -88,7 +91,8 @@ double		check_cylinder_collision(t_ray *ray, t_object *cylinder)
 	return (res[0]);
 }
 
-t_vector			calc_normal_cylinder(t_ray_res *res, t_ray *ray, t_object *cylinder)
+t_vector		calc_normal_cylinder(t_ray_res *res, t_ray *ray,
+							t_object *cylinder)
 {
 	t_vector	temp;
 	t_vector	disk[2];
@@ -111,12 +115,11 @@ t_vector			calc_normal_cylinder(t_ray_res *res, t_ray *ray, t_object *cylinder)
 	return (vec_sub(res->cords, temp));
 }
 
-void				calc_res_cylinder(t_ray_res *res, t_ray *ray, t_object *cylinder)
+void		calc_res_cylinder(t_ray_res *res, t_ray *ray, t_object *cylinder)
 {
 	res->color = int_to_rgb(cylinder->color);
 	res->cords = vec_addition(ray->origin,
 						vec_double_mult(ray->direction, res->len));
 	res->object = cylinder;
 	res->normal = calc_normal_cylinder(res, ray, cylinder);
-//	printf("[%.2f|%.2f|%.2f]\n", res->normal.x, res->normal.y, res->normal.z);
 }

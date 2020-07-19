@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 14:47:55 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/17 14:15:47 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/18 14:25:46 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,11 @@ void	pars_amb(char *line, t_data *data)
 		return (exit_free(data, "Amb can only be set once."));
 	data->amb.amb_set = 1;
 	input = ft_split(line, ' ');
+	if (arr_len(input) != 3)
+	{
+		free(input);
+		return (exit_free(data, "Incorrect number of arguments."));
+	}
 	data->amb.light = str_to_double(input[1]);
 	data->amb.color = int_to_rgb(rgb_to_int(input[2]));
 	ft_free_array(input);

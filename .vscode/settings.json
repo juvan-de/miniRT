@@ -1,9 +1,0 @@
-{
-	"files.associations": {
-		"__locale": "c",
-		"ios": "c",
-		"mlx.h": "c",
-		"test.h": "c",
-		"keys.h": "c"
-	}
-}

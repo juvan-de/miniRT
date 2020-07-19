@@ -6,13 +6,13 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/17 16:37:27 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/17 15:43:53 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 16:02:24 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 
-double		light_intensity(t_ray_res *res, t_data *data, t_light *light)
+static double	light_intensity(t_ray_res *res, t_data *data, t_light *light)
 {
 	t_ray		ray;
 	t_object	*object;
@@ -35,7 +35,7 @@ double		light_intensity(t_ray_res *res, t_data *data, t_light *light)
 	return (fmax(0, fmin(intensity * LIGHTMULTIPLIER, 1)));
 }
 
-t_color	light_color(t_color light, t_color object)
+t_color			light_color(t_color light, t_color object)
 {
 	if (object.r > light.r)
 		object.r = light.r;
@@ -46,22 +46,12 @@ t_color	light_color(t_color light, t_color object)
 	return (object);
 }
 
-int		calc_rgb_to_int(t_color color)
+int				calc_rgb_to_int(t_color color)
 {
 	return ((color.r * 65536) + (color.g * 256) + color.b);
 }
 
-t_color	shade_color_2(t_color color, double	fraction)
-{
-	t_color	res;
-
-	res.r = color.r * fraction;
-	res.g = color.g * fraction;
-	res.b = color.b * fraction;
-	return (res);
-}
-
-t_color	add_colors(t_color one, t_color two)
+t_color			add_colors(t_color one, t_color two)
 {
 	t_color	res;
 
@@ -77,7 +67,7 @@ t_color	add_colors(t_color one, t_color two)
 	return (res);
 }
 
-int		full_light_calc(t_ray_res *res, t_data *data)
+int				full_light_calc(t_ray_res *res, t_data *data)
 {
 	t_light	*light;
 	t_color	color;

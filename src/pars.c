@@ -6,13 +6,27 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/11 14:12:50 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/12 22:43:37 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:58:43 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/get_next_line.h"
 #include "../libft/libft.h"
 #include "../inc/minirt.h"
+
+void	ft_free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
+	return ;
+}
 
 void	object_add_back(t_data **data, t_object *new)
 {
@@ -82,6 +96,4 @@ void	get_parsed(char *line, t_data *data)
 		pars_square(line, data);
 	else if (line[0] == 'c' && line[1] == 'y')
 		pars_cylinder(line, data);
-	//else if
-	//	printf("make error func here\n");
 }

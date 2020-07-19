@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 16:48:00 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/07 15:35:12 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:41:07 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ t_vector	ft_vector_from_scene(char *input)
 	return (res);
 }
 
-void	cam_add_back(t_data **data, t_cam *new)
+static void	cam_add_back(t_data **data, t_cam *new)
 {
 	t_cam	*cam;
 
@@ -74,18 +74,30 @@ void	cam_add_back(t_data **data, t_cam *new)
 	cam->next = new;
 }
 
-void	pars_cam(char *line, t_data *data)
+void		fill_cam(t_cam *temp, char **input)
 {
-	char	**input;
-	t_cam	*temp;
-
-	input = ft_split(line, ' ');
-	temp = malloc(sizeof(t_cam));
 	temp->cords = ft_vector_from_scene(input[1]);
 	temp->vector = ft_vector_from_scene(input[2]);
 	temp->fov = ft_atoi(input[3]);
 	temp->next = 0;
 	temp->matrix = new_matrix(normalize_vector(temp->vector));
+}
+
+void		pars_cam(char *line, t_data *data)
+{
+	char	**input;
+	t_cam	*temp;
+
+	input = ft_split(line, ' ');
+	if (arr_len(input) != 4)
+	{
+		free(input);
+		return (exit_free(data, "Incorrect number of arguments."));
+	}
+	temp = malloc(sizeof(t_cam));
+	if (!temp)
+		return (exit_free(data, "Malloc failed for cam"));
+	fill_cam(temp, input);
 	if (data->cam)
 		temp->first = data->cam->first;
 	ft_free_array(input);

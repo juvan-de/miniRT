@@ -6,7 +6,7 @@
 /*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/18 11:10:01 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/17 14:30:16 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 16:01:24 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,7 +201,7 @@ t_color		new_color(int r, int g, int b);
 int			numlen_base(int num, int base);
 double		ft_atoi_float(char *input);
 double		deg_to_rad(double degree);
-int			shade_color(int integer, double fraction);
+t_color		shade_color_2(t_color color, double fraction);
 t_vector	make_cords(double a, double b, double c);
 int			arr_len(char **array);
 t_color		int_to_rgb(int integer);

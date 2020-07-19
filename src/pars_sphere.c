@@ -6,7 +6,7 @@
 /*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:04:59 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/07 15:34:52 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/18 14:41:03 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,14 @@ void	pars_sphere(char *line, t_data *data)
 	t_object	*temp;
 
 	input = ft_split(line, ' ');
+	if (arr_len(input) != 4)
+	{
+		free(input);
+		return (exit_free(data, "Incorrect number of arguments."));
+	}
 	temp = malloc(sizeof(t_object));
+	if (!temp)
+		return (exit_free(data, "Malloc failed for sphere."));
 	temp->type = "sp";
 	temp->cords = ft_vector_from_scene(input[1]);
 	temp->size = ft_atoi(input[2]);

@@ -6,7 +6,7 @@
 /*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/18 14:07:20 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/12 22:45:35 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:34:06 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,49 +54,4 @@ t_vector	vec_sub(t_vector a, t_vector b)
 	res.y = a.y - b.y;
 	res.z = a.z - b.z;
 	return (res);
-}
-
-t_vector	vec_double_mult(t_vector a, double fraction)
-{
-	t_vector	res;
-
-	res.x = a.x * fraction;
-	res.y = a.y * fraction;
-	res.z = a.z * fraction;
-	return (res);
-}
-
-t_vector	vec_double_add(t_vector a, double b)
-{
-	t_vector	res;
-
-	res.x = a.x + b;
-	res.y = a.y + b;
-	res.z = a.z + b;
-	return (res);
-}
-
-t_vector	crossproduct(t_vector a, t_vector b)
-{
-	t_vector res;
-
-	res.x = a.y * b.z - a.z * b.y;
-	res.y = a.z * b.x - a.x * b.z;
-	res.z = a.x * b.y - a.y * b.x;
-	return (res);
-}
-
-t_vector	vec_mult(t_vector a, t_vector b)
-{
-	t_vector	res;
-
-	res.x = a.x * b.x;
-	res.y = a.y * b.y;
-	res.z = a.z * b.z;
-	return (res);
-}
-
-double	vec_squared(t_vector a)
-{
-	return (pow(a.x, 2) + pow(a.y, 2) + pow(a.z, 2));
 }

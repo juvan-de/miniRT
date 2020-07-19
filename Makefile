@@ -6,7 +6,7 @@
 #    By: juvan-de <juvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/27 11:29:28 by juvan-de      #+#    #+#                  #
-#    Updated: 2020/07/17 14:29:04 by julesvander   ########   odam.nl          #
+#    Updated: 2020/07/19 16:04:37 by julesvander   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,9 +26,11 @@ OBJ_FILES =	maths.o \
 			get_next_line.o \
 			get_next_line_utils.o \
 			utils.o \
+			more_utils.o \
 			free.o \
 			main.o \
 			projecting.o \
+			pixel.o \
 			sphere_collision.o \
 			plane_collision.o \
 			square_collision.o \
@@ -38,16 +40,14 @@ OBJ_FILES =	maths.o \
 			mlx.o \
 			keys.o \
 			vector.o \
+			vector_two.o \
 			matrix.o \
-			make_bmp.o \
-				
+			make_bmp.o
+
 OBJECTS = $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 
 SRC_DIR = ./src/
 
-INC_DIR = ./includes/
-INC_FILES = 
-INCLUDES = $(addprefix $(INC_DIR), $(INC_FILES))
 
 LIBFT = -L./libft -lft
 
@@ -59,7 +59,7 @@ $(NAME): $(OBJECTS)
 	make -C libft
 	@cp libft/libft.a .
 	make -C mlx
-	$(CC) -Lmlx/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJECTS) $(LIBFT) 
+	$(CC) -Lmlx/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJECTS) $(LIBFT)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@gcc -Imlx -Ilibft -c $< -o $@ $(CFLAGS)
@@ -80,4 +80,4 @@ re: fclean all
 libft:
 	$(MAKE) -C libft bonus
 
-.PHONY: all $(NAME) clean fclean re libft exe
+.PHONY: all clean fclean re libft

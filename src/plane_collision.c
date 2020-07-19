@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/02 14:31:49 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/17 14:21:08 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 16:02:47 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void		calc_res_plane(t_ray_res *res, t_ray *ray, t_object *plane)
 {
-	res->cords = vec_addition(ray->origin, vec_double_mult(ray->direction, res->len));
+	res->cords = vec_addition(ray->origin,
+				vec_double_mult(ray->direction, res->len));
 	res->color = int_to_rgb(plane->color);
 	if (vec_angle(ray->direction, plane->vector) < M_PI_2)
 		res->normal = vec_double_mult(plane->vector, -1);
@@ -41,4 +42,3 @@ double		check_plane_collision(t_ray *ray, t_object *plane)
 	}
 	return (INFINITY);
 }
-

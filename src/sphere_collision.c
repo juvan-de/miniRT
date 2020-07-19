@@ -6,7 +6,7 @@
 /*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/27 15:50:11 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/17 14:19:28 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/19 15:31:57 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	calc_res_sphere(t_ray_res *res, t_ray *ray, t_object *sphere)
 {
-	res->cords = vec_addition(ray->origin, vec_double_mult(ray->direction, res->len));
+	res->cords = vec_addition(ray->origin,
+		vec_double_mult(ray->direction, res->len));
 	res->normal = vec_sub(res->cords, sphere->cords);
 	res->normal = normalize_vector(res->normal);
 	res->color = int_to_rgb(sphere->color);
@@ -36,7 +37,7 @@ double	check_sphere_collision(t_ray *ray, t_object *sphere)
 		temp[1] = sqrt(sphere->size * sphere->size - (dist * dist));
 		t[0] = temp[0] - temp[1];
 		t[1] = temp[0] + temp[1];
-		if (t[0] < t[1])
+		if (t[0] < t[1] && t[0] > 0)
 			return (t[0]);
 		return (t[1]);
 	}
