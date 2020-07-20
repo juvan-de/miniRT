@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   pixel.c                                            :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/19 16:03:47 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/19 16:04:24 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:14:37 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

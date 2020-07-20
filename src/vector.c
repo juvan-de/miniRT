@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   vector.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/18 14:07:20 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/19 15:34:06 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:15:05 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

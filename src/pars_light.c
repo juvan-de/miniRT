@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   pars_light.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 15:57:34 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/18 14:40:32 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:14:05 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   keys.c                                             :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/08 14:34:13 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/18 13:56:33 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:13:08 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

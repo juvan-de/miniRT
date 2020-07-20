@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   triangle_collision.c                               :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:55:31 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/19 15:43:50 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:14:58 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

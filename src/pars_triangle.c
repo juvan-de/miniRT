@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   pars_triangle.c                                    :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:19 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/19 15:42:05 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:14:32 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	fill_triangle(t_object *temp, char **input)
 	temp->second_cord = ft_vector_from_scene(input[2]);
 	temp->third_cord = ft_vector_from_scene(input[3]);
 	temp->color = rgb_to_int(input[4]);
-	temp->next = 0;	
+	temp->next = 0;
 }
 
 void	pars_triangle(char *line, t_data *data)

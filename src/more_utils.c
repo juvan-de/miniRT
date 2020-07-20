@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   more_utils.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/19 15:55:51 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/19 16:01:04 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:17:39 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_color	shade_color_2(t_color color, double fraction)
 	return (res);
 }
 
-t_color		int_to_rgb(int integer)
+t_color	int_to_rgb(int integer)
 {
 	t_color	color;
 

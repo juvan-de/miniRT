@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   keys.h                                             :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/08 14:21:52 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/06/29 15:03:06 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:22:13 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@ typedef struct	s_key
 	int			(*func)(t_data *, int);
 }				t_key;
 
-int		exit_hook(t_data *data, int keycode);
-int		next_cam(t_data *data, int keycode);
-int		move_cam(t_data *data, int keycode);
-int		rotate_cam(t_data *data, int keycode);
+int				exit_hook(t_data *data, int keycode);
+int				next_cam(t_data *data, int keycode);
+int				move_cam(t_data *data, int keycode);
+int				rotate_cam(t_data *data, int keycode);
 
-t_key		g_hook_key[] = {
+t_key			g_hook_key[] = {
 	{KEY_ESC, &exit_hook},
 	{KEY_E, &next_cam},
 	{KEY_A, &move_cam},

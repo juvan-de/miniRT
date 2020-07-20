@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   main.c                                             :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 16:13:23 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/19 15:57:31 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:20:09 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../inc/minirt.h"
 #include "../mlx/mlx.h"
 
-int			ft_error(char *message)
+int				ft_error(char *message)
 {
 	ft_putstr_fd(message, 1);
 	return (0);
@@ -32,7 +32,7 @@ static int		check_filename(char *name)
 		return (ft_error("wrong filename\n"));
 }
 
-static void	check_input(char *filename, t_data *data)
+static void		check_input(char *filename, t_data *data)
 {
 	int		fd;
 	char	*file;
@@ -57,7 +57,7 @@ static void	check_input(char *filename, t_data *data)
 		return (exit_free(data, "No camera set."));
 }
 
-int			main(int argc, char **argv)
+int				main(int argc, char **argv)
 {
 	t_data	data;
 

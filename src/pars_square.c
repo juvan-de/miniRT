@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   pars_square.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:39 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/19 15:43:24 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:14:25 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void		fill_square(t_object *temp, char **input)
 	temp->vector = normalize_vector(ft_vector_from_scene(input[2]));
 	temp->size = ft_atoi_float(input[3]);
 	temp->color = rgb_to_int(input[4]);
-	temp->next = 0;	
+	temp->next = 0;
 }
 
 void		pars_square(char *line, t_data *data)

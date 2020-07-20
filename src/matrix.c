@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   matrix.c                                           :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/18 14:39:00 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/09 17:39:55 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:13:36 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

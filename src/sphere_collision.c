@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   sphere_collision.c                                 :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/27 15:50:11 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/19 15:31:57 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:14:48 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

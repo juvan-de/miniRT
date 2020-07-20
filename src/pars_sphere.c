@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   pars_sphere.c                                      :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:04:59 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/18 14:41:03 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:14:20 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,17 +3,17 @@
 /*                                                        ::::::::            */
 /*   mlx.c                                              :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/28 16:23:11 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/17 14:30:40 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:18:02 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 #include "../mlx/mlx.h"
 
-void	my_mlx_pixel_put(t_image *img, int x, int y, int color)
+void		my_mlx_pixel_put(t_image *img, int x, int y, int color)
 {
 	char *dst;
 

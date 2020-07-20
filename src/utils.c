@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 15:15:09 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/19 15:56:39 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:19:37 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static double	ft_atoi_float_int(char *input, int *neg, int *i)
 	return (res);
 }
 
-double		ft_atoi_float(char *input)
+double			ft_atoi_float(char *input)
 {
 	double	res;
 	double	temp;
@@ -81,7 +81,7 @@ double		ft_atoi_float(char *input)
 	return (res * neg);
 }
 
-double	vec_angle(t_vector a, t_vector b)
+double			vec_angle(t_vector a, t_vector b)
 {
 	double	temp[3];
 
@@ -91,7 +91,7 @@ double	vec_angle(t_vector a, t_vector b)
 	return (acos(temp[0] / (temp[1] * temp[2])));
 }
 
-double	deg_to_rad(double degree)
+double			deg_to_rad(double degree)
 {
 	return (degree * (M_PI / 180));
 }

@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   make_bmp.c                                         :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/16 16:41:05 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/17 14:04:26 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:13:22 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 

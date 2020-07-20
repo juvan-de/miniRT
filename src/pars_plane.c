@@ -3,10 +3,10 @@
 /*                                                        ::::::::            */
 /*   pars_plane.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: julesvanderhoek <julesvanderhoek@studen      +#+                     */
+/*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:06:07 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/19 15:39:07 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 12:14:14 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
