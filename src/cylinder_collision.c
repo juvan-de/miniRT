@@ -6,12 +6,11 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:06:17 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:19:12 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 13:06:47 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
-#include <math.h>
 
 static double	check_cylinder_collision_one(t_ray *ray, t_object *cylinder)
 {

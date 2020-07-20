@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/08 14:21:52 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:22:13 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 13:05:41 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,6 @@
 # define KEY_S 1
 # define KEY_SPACE 49
 # define KEY_SHIFT 257
-# define KEY_LEFT 123
-# define KEY_RIGHT 124
-# define KEY_DOWN 125
-# define KEY_UP 126
 
 typedef struct	s_key
 {
@@ -36,7 +32,6 @@ typedef struct	s_key
 int				exit_hook(t_data *data, int keycode);
 int				next_cam(t_data *data, int keycode);
 int				move_cam(t_data *data, int keycode);
-int				rotate_cam(t_data *data, int keycode);
 
 t_key			g_hook_key[] = {
 	{KEY_ESC, &exit_hook},
@@ -47,10 +42,6 @@ t_key			g_hook_key[] = {
 	{KEY_W, &move_cam},
 	{KEY_SPACE, &move_cam},
 	{KEY_SHIFT, &move_cam},
-	{KEY_RIGHT, &rotate_cam},
-	{KEY_LEFT, &rotate_cam},
-	{KEY_UP, &rotate_cam},
-	{KEY_DOWN, &rotate_cam},
 	{0, NULL}
 };
 

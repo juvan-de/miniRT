@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 16:13:23 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:20:09 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 16:50:09 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ static int		check_filename(char *name)
 	if (name[i - 1] == 't' && name[i - 2] == 'r' && name[i - 3] == '.')
 		return (1);
 	else
-		return (ft_error("wrong filename\n"));
+	{
+		ft_error("wrong filename\n");
+		exit(1);
+	}
 }
 
 static void		check_input(char *filename, t_data *data)
@@ -71,7 +74,7 @@ int				main(int argc, char **argv)
 		mlx(&data);
 		mlx_loop(data.mlx.mlx);
 	}
-	else if (ft_strncmp("--save", argv[2], ft_strlen(argv[2])) == 0)
+	else if (ft_strncmp("--save", argv[2], ft_strlen("--save") + 1) == 0)
 		save_bmp(&data);
 	else
 		exit_free(&data, "Wrong argument");

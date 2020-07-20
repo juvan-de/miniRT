@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/19 15:55:51 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:17:39 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 16:42:42 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_color	int_to_rgb(int integer)
 {
 	t_color	color;
 
+	if (integer == -1)
+		return (new_color(-1, 0, 0));
 	color.r = (integer / 65536);
 	integer = (integer - (color.r * 65536));
 	color.g = integer / 256;

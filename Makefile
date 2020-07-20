@@ -6,7 +6,7 @@
 #    By: juvan-de <juvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/27 11:29:28 by juvan-de      #+#    #+#                  #
-#    Updated: 2020/07/19 16:04:37 by julesvander   ########   odam.nl          #
+#    Updated: 2020/07/20 14:07:14 by julesvander   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ SRC_DIR = ./src/
 
 
 LIBFT = -L./libft -lft
+MLX = -Lmlx/ -lmlx -framework OpenGL -framework AppKit
 
 CFLAGS = -Wall -Werror -Wextra
 
@@ -59,9 +60,11 @@ $(NAME): $(OBJECTS)
 	make -C libft
 	@cp libft/libft.a .
 	make -C mlx
-	$(CC) -Lmlx/ -lmlx -framework OpenGL -framework AppKit -o $(NAME) $(OBJECTS) $(LIBFT)
+	@cp mlx/libmlx.dylib .
+	$(CC) $(MLX) -o $(NAME) $(OBJECTS) $(LIBFT)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	@mkdir -p obj
 	@gcc -Imlx -Ilibft -c $< -o $@ $(CFLAGS)
 
 bonus:
@@ -74,6 +77,7 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME) execute
 	/bin/rm -f libft/libft.a
+	/bin/rm -f libft.a libmlx.dylib
 
 re: fclean all
 

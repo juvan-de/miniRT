@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 16:34:22 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/19 15:58:51 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 16:44:42 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	ft_free_camera(t_cam *cam)
 {
 	t_cam	*temp;
 
+	cam = cam->first;
 	while (cam->next)
 	{
 		temp = cam->next;

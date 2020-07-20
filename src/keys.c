@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/08 14:34:13 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:13:08 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 13:05:21 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,6 @@ int		move_cam(t_data *data, int keycode)
 		cam->cords.z++;
 	else if (keycode == KEY_W)
 		cam->cords.z--;
-	return (1);
-}
-
-int		rotate_cam(t_data *data, int keycode)
-{
-	t_cam	*cam;
-
-	cam = data->cam;
-	if (keycode == KEY_RIGHT)
-		cam->vector.x++;
-	else if (keycode == KEY_LEFT)
-		cam->vector.x--;
-	else if (keycode == KEY_UP)
-		cam->vector.y++;
-	else if (keycode == KEY_DOWN)
-		cam->vector.y--;
 	return (1);
 }
 
