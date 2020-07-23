@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 14:47:55 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/23 17:52:00 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 18:27:28 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ double			str_to_double(char *input)
 		return (-1);
 	temp = ft_atoi(input);
 	res = ft_atoi(input + 2);
-	while (res > 1)
+	while (res >= 1)
 		res = res / 10;
 	res += temp;
 	return (res);

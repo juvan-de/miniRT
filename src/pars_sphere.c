@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:04:59 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 18:04:18 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 18:07:16 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static int	vectorcheck(char **array)
 	{
 		goodchars = "0123456789.";
 		if ((ft_strrchr(goodchars, (int)array[i][0]) == 0 &&
-								array[i][0] != '-') || array[i][0] == '.')
+								array[i][0] != '-'))
 			return (0);
 		j = 1;
 		while (array[i][j])
@@ -52,8 +52,6 @@ static int	vectorcheck(char **array)
 				return (0);
 			if (array[i][j] == '.')
 				goodchars = "0123456789";
-			if (array[i][j] == '.' && array[i][j - 1] == '-')
-				return (0);
 			j++;
 		}
 		i++;
