@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/11 14:12:50 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/20 13:44:16 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/20 17:37:41 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,19 @@ void	pars_res(char *line, t_data *data)
 		return (exit_free(data, "Res can only be set once."));
 	data->res.res_set = 1;
 	input = ft_split(line, ' ');
+	if (arr_len(input) != 3)
+	{
+		ft_free_array(input);
+		exit_free(data, "wrong number of arguments");
+	}
 	data->res.res_x = ft_atoi(input[1]);
 	data->res.res_y = ft_atoi(input[2]);
 	ft_free_array(input);
 	mlx_get_screen_size(data->mlx.mlx, &screen[0], &screen[1]);
-	if (data->res.res_x > (unsigned int)screen[0])
-		data->res.res_x = (unsigned int)screen[0];
-	if (data->res.res_y > (unsigned int)screen[1])
-		data->res.res_y = (unsigned int)screen[1];
+	if (data->res.res_x > screen[0])
+		data->res.res_x = screen[0];
+	if (data->res.res_y > screen[1])
+		data->res.res_y = screen[1];
 	if (data->res.res_x <= 0)
 		return (exit_free(data, "Wrong x-resolution."));
 	if (data->res.res_y <= 0)
