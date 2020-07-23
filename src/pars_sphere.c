@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:04:59 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 17:22:36 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:55:53 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ t_vector	ft_cords_from_scene(char *input)
 	return (new_vector(INFINITY, INFINITY, INFINITY));
 }
 
-void	pars_sphere(char *line, t_data *data)
+void		pars_sphere(char *line, t_data *data)
 {
 	char		**input;
 	t_object	*temp;

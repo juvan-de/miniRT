@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/11 14:12:50 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/23 17:24:58 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:50:03 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,22 +91,26 @@ char	*remove_tabs(char *line)
 
 void	get_parsed(char *line, t_data *data)
 {
-	if (line[0] == 'R')
+	if (line[0] == 'R' && line[1] == ' ')
 		pars_res(line, data);
-	else if (line[0] == 'A')
+	else if (line[0] == 'A' && line[1] == ' ')
 		pars_amb(line, data);
-	else if (line[0] == 'c' && line[1] != 'y')
+	else if (line[0] == 'c' && line[1] == ' ')
 		pars_cam(line, data);
-	else if (line[0] == 'l')
+	else if (line[0] == 'l' && line[1] == ' ')
 		pars_light(line, data);
-	else if (line[0] == 's' && line[1] == 'p')
+	else if (line[0] == 's' && line[1] == 'p' && line[2] == ' ')
 		pars_sphere(line, data);
-	else if (line[0] == 't' && line[1] == 'r')
+	else if (line[0] == 't' && line[1] == 'r' && line[2] == ' ')
 		pars_triangle(line, data);
-	else if (line[0] == 'p' && line[1] == 'l')
+	else if (line[0] == 'p' && line[1] == 'l' && line[2] == ' ')
 		pars_plane(line, data);
-	else if (line[0] == 's' && line[1] == 'q')
+	else if (line[0] == 's' && line[1] == 'q' && line[2] == ' ')
 		pars_square(line, data);
-	else if (line[0] == 'c' && line[1] == 'y')
+	else if (line[0] == 'c' && line[1] == 'y' && line[2] == ' ')
 		pars_cylinder(line, data);
+	else if (line[0] == '\n' || line[0] == '\0')
+		return ;
+	else
+		exit_free(data, "Wrong identifier");
 }

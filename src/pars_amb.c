@@ -6,14 +6,14 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 14:47:55 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/23 16:49:45 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:52:00 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 #include "../libft/libft.h"
 
-double	str_to_double(char *input)
+double			str_to_double(char *input)
 {
 	double	res;
 	int		temp;
@@ -56,7 +56,7 @@ static int		colorcheck(char **array)
 	return (1);
 }
 
-t_color	scene_to_color(char *input)
+t_color			scene_to_color(char *input)
 {
 	t_color	res;
 	char	**array;
@@ -78,7 +78,7 @@ t_color	scene_to_color(char *input)
 	return (new_color(-1, 0, 0));
 }
 
-void	pars_amb(char *line, t_data *data)
+void			pars_amb(char *line, t_data *data)
 {
 	char	**input;
 
