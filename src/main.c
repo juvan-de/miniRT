@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 16:13:23 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 16:50:09 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:45:22 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ static int		check_filename(char *name)
 	else
 	{
 		ft_error("wrong filename\n");
+		system("leaks miniRT");
 		exit(1);
 	}
 }

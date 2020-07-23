@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:04:59 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 16:36:34 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:54:48 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static int	vectorcheck(char **array)
 	goodchars = "0123456789.";
 	while (i < 3)
 	{
-		if (ft_strrchr(goodchars, (int)array[i][0]) == 0 && array[i][0] != '-')
+		if ((ft_strrchr(goodchars, (int)array[i][0]) == 0 &&
+								array[i][0] != '-') || array[i][0] == '.')
 			return (0);
 		j = 1;
 		while (array[i][j])
@@ -57,7 +58,7 @@ t_vector	ft_vector_from_scene(char *input)
 		if (res.x == 0 && res.y == 0 && res.z == 0)
 			failcheck = 0;
 	}
-	free(array);
+	ft_free_array(array);
 	if (failcheck)
 		return (normalize_vector(res));
 	return (new_vector(-5, 0, 0));
@@ -78,7 +79,7 @@ t_vector	ft_cords_from_scene(char *input)
 		res.z = ft_atoi_float(array[2]);
 		failcheck = 1;
 	}
-	free(array);
+	ft_free_array(array);
 	if (failcheck)
 		return (res);
 	return (new_vector(INFINITY, INFINITY, INFINITY));
@@ -92,7 +93,7 @@ void	pars_sphere(char *line, t_data *data)
 	input = ft_split(line, ' ');
 	if (arr_len(input) != 4)
 	{
-		free(input);
+		ft_free_array(input);
 		return (exit_free(data, "Incorrect number of arguments."));
 	}
 	temp = malloc(sizeof(t_object));

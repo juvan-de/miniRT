@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:39 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 16:41:42 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:50:14 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void		pars_square(char *line, t_data *data)
 	input = ft_split(line, ' ');
 	if (arr_len(input) != 5)
 	{
-		free(input);
+		ft_free_array(input);
 		return (exit_free(data, "Incorrect number of arguments."));
 	}
 	temp = malloc(sizeof(t_object));

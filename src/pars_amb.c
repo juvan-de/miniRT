@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 14:47:55 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/23 16:40:39 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:49:45 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ t_color	scene_to_color(char *input)
 		if (res.r <= 255 && res.g <= 255 && res.b <= 255)
 			failcheck = 1;
 	}
-	free(array);
+	ft_free_array(array);
 	if (failcheck)
 		return (res);
 	return (new_color(-1, 0, 0));
@@ -88,7 +88,7 @@ void	pars_amb(char *line, t_data *data)
 	input = ft_split(line, ' ');
 	if (arr_len(input) != 3)
 	{
-		free(input);
+		ft_free_array(input);
 		return (exit_free(data, "Incorrect number of arguments."));
 	}
 	data->amb.light = str_to_double(input[1]);

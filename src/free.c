@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 16:34:22 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/20 16:44:42 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:45:10 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,6 @@ void	exit_free(t_data *data, char *error)
 	write(1, "\n", 1);
 	if (data)
 		free_data(data);
+	system("leaks miniRT");
 	exit(1);
 }

@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/28 16:23:11 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:18:02 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:45:36 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ int			exit_hook(t_data *data, int keycode)
 	mlx = data->mlx;
 	mlx_destroy_window(mlx.mlx, mlx.mlx_win);
 	free_data(data);
+	system ("leaks miniRT");
 	exit(1);
-	return (1);
 }
 
 t_mlx		mlx_initialize(t_data *data)
