@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:19 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:14:32 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:39:25 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 void	fill_triangle(t_object *temp, char **input)
 {
 	temp->type = "tr";
-	temp->cords = ft_vector_from_scene(input[1]);
-	temp->second_cord = ft_vector_from_scene(input[2]);
-	temp->third_cord = ft_vector_from_scene(input[3]);
-	temp->color = rgb_to_int(input[4]);
+	temp->cords = ft_cords_from_scene(input[1]);
+	temp->second_cord = ft_cords_from_scene(input[2]);
+	temp->third_cord = ft_cords_from_scene(input[3]);
+	temp->color = scene_to_color(input[4]);
 	temp->next = 0;
 }
 
@@ -44,6 +44,6 @@ void	pars_triangle(char *line, t_data *data)
 		temp->second_cord.x == INFINITY ||
 		temp->third_cord.x == INFINITY)
 		return (exit_free(data, "Wrong cord for triangle"));
-	if (temp->color == -1)
+	if (temp->color.r == -1)
 		return (exit_free(data, "Wrong color for triangle"));
 }

@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:06:07 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:14:14 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:41:30 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 static void	fill_plane(t_object *temp, char **input)
 {
 	temp->type = "pl";
-	temp->cords = ft_vector_from_scene(input[1]);
+	temp->cords = ft_cords_from_scene(input[1]);
 	temp->vector = ft_vector_from_scene(input[2]);
-	temp->color = rgb_to_int(input[3]);
+	temp->color = scene_to_color(input[3]);
 	temp->next = 0;
 }
 
@@ -41,10 +41,8 @@ void		pars_plane(char *line, t_data *data)
 	object_add_back(&data, temp);
 	if (temp->cords.x == INFINITY)
 		return (exit_free(data, "Wrong cords for plane"));
-	if (temp->vector.x < -1 || temp->vector.x > 1 ||
-			temp->vector.y < -1 || temp->vector.y > 1 ||
-			temp->vector.z < -1 || temp->vector.z > 1)
+	if (temp->vector.x == -5)
 		return (exit_free(data, "Wrong vector for plane"));
-	if (temp->color == -1)
+	if (temp->color.r == -1)
 		return (exit_free(data, "Wrong color for plane"));
 }

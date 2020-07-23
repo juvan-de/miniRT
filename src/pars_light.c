@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 15:57:34 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:14:05 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:38:07 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ void	pars_light(char *line, t_data *data)
 	temp = malloc(sizeof(t_light));
 	if (!temp)
 		return (exit_free(data, "Malloc failed for light"));
-	temp->cords = ft_vector_from_scene(input[1]);
+	temp->cords = ft_cords_from_scene(input[1]);
 	temp->intensity = str_to_double(input[2]);
-	temp->color = int_to_rgb(rgb_to_int(input[3]));
+	temp->color = scene_to_color(input[3]);
 	temp->next = 0;
 	light_add_back(&data, temp);
 	ft_free_array(input);

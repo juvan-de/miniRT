@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/18 11:10:01 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:26:43 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:40:26 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct		s_matrix
 
 typedef struct		s_pixel
 {
-	unsigned int	x;
-	unsigned int	y;
+	int				x;
+	int				y;
 }					t_pixel;
 
 typedef struct		s_ray
@@ -75,8 +75,8 @@ typedef struct		s_mlx
 typedef struct		s_res
 {
 	int				res_set;
-	unsigned int	res_x;
-	unsigned int	res_y;
+	int				res_x;
+	int				res_y;
 }					t_res;
 
 typedef struct		s_amb
@@ -111,7 +111,7 @@ typedef struct		s_object
 	t_vector		second_cord;
 	t_vector		third_cord;
 	t_vector		vector;
-	int				color;
+	t_color			color;
 	double			size;
 	double			height;
 	struct s_object	*next;
@@ -149,10 +149,10 @@ double				d3d_distance(t_vector a, t_vector b);
 t_vector			calc_normal_sphere(t_vector p_hit, t_object *sphere);
 
 char				*remove_tabs(char *line);
-int					rgb_to_int(char *input);
 double				str_to_double(char *input);
 
 t_vector			ft_vector_from_scene(char *input);
+t_vector			ft_cords_from_scene(char *input);
 void				get_parsed(char *line, t_data *data);
 void				pars_amb(char *line, t_data *data);
 void				pars_light(char *line, t_data *data);
@@ -163,6 +163,7 @@ void				pars_plane(char *line, t_data *data);
 void				pars_square(char *line, t_data *data);
 void				pars_cylinder(char *line, t_data *data);
 void				object_add_back(t_data **data, t_object *new);
+t_color				scene_to_color(char *input);
 
 void				loop_pixels(t_data *data);
 t_vector			get_pixel(t_data *data, t_pixel pixel);

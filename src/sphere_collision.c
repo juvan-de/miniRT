@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/27 15:50:11 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:14:48 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:00:38 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	calc_res_sphere(t_ray_res *res, t_ray *ray, t_object *sphere)
 		vec_double_mult(ray->direction, res->len));
 	res->normal = vec_sub(res->cords, sphere->cords);
 	res->normal = normalize_vector(res->normal);
-	res->color = int_to_rgb(sphere->color);
+	res->color = sphere->color;
 	res->object = sphere;
 }
 

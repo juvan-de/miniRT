@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 14:47:55 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/18 14:25:46 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:40:39 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,28 +30,52 @@ double	str_to_double(char *input)
 		return (-1);
 	temp = ft_atoi(input);
 	res = ft_atoi(input + 2);
-	res = res / 10;
+	while (res > 1)
+		res = res / 10;
 	res += temp;
 	return (res);
 }
 
-int		rgb_to_int(char *input)
+static int		colorcheck(char **array)
 {
-	int	temp;
-	int	temp2;
-	int	res;
+	int	i;
+	int	j;
 
-	temp = ft_atoi(input);
-	res = temp * 65536;
-	temp2 = ft_atoi(input + numlen_base(temp, 10) + 1);
-	res = res + temp2 * 256;
-	if (temp < 0 || temp > 255)
-		return (-1);
-	temp = ft_atoi(input + numlen_base(temp, 10) + numlen_base(temp2, 10) + 2);
-	res = res + temp;
-	if (temp < 0 || temp > 255 || temp2 < 0 || temp2 > 255)
-		return (-1);
-	return (res);
+	i = 0;
+	while (i < 3)
+	{
+		j = 0;
+		while (array[i][j])
+		{
+			if (!ft_isdigit((int)array[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+t_color	scene_to_color(char *input)
+{
+	t_color	res;
+	char	**array;
+	int		failcheck;
+
+	array = ft_split(input, ',');
+	failcheck = 0;
+	if (arr_len(array) == 3 && colorcheck(array) == 1)
+	{
+		res.r = ft_atoi(array[0]);
+		res.g = ft_atoi(array[1]);
+		res.b = ft_atoi(array[2]);
+		if (res.r <= 255 && res.g <= 255 && res.b <= 255)
+			failcheck = 1;
+	}
+	free(array);
+	if (failcheck)
+		return (res);
+	return (new_color(-1, 0, 0));
 }
 
 void	pars_amb(char *line, t_data *data)
@@ -68,7 +92,7 @@ void	pars_amb(char *line, t_data *data)
 		return (exit_free(data, "Incorrect number of arguments."));
 	}
 	data->amb.light = str_to_double(input[1]);
-	data->amb.color = int_to_rgb(rgb_to_int(input[2]));
+	data->amb.color = scene_to_color(input[2]);
 	ft_free_array(input);
 	if (data->amb.light > 1 || data->amb.light < 0)
 		return (exit_free(data, "Wrong amb intensity imput."));

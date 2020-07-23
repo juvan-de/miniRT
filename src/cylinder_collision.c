@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/16 14:06:17 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 13:06:47 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:01:07 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ t_vector		calc_normal_cylinder(t_ray_res *res, t_ray *ray,
 void			calc_res_cylinder(t_ray_res *res, t_ray *ray,
 										t_object *cylinder)
 {
-	res->color = int_to_rgb(cylinder->color);
+	res->color = cylinder->color;
 	res->cords = vec_addition(ray->origin,
 						vec_double_mult(ray->direction, res->len));
 	res->object = cylinder;

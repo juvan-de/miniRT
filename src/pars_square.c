@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:39 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:14:25 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:41:42 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ t_color		rgb_from_scene(char *input)
 void		fill_square(t_object *temp, char **input)
 {
 	temp->type = "sq";
-	temp->cords = ft_vector_from_scene(input[1]);
+	temp->cords = ft_cords_from_scene(input[1]);
 	temp->vector = normalize_vector(ft_vector_from_scene(input[2]));
 	temp->size = ft_atoi_float(input[3]);
-	temp->color = rgb_to_int(input[4]);
+	temp->color = scene_to_color(input[4]);
 	temp->next = 0;
 }
 
@@ -71,11 +71,9 @@ void		pars_square(char *line, t_data *data)
 	ft_free_array(input);
 	if (temp->cords.x == INFINITY)
 		return (exit_free(data, "Wrong cords for square"));
-	if (temp->color == -1)
+	if (temp->color.r == -1)
 		return (exit_free(data, "Wrong color for square"));
-	if (temp->vector.x < -1 || temp->vector.x > 1 ||
-			temp->vector.y < -1 || temp->vector.y > 1 ||
-			temp->vector.z < -1 || temp->vector.z > 1)
+	if (temp->vector.x == -5)
 		return (exit_free(data, "Wrong vector for square."));
 	if (temp->size < 0)
 		return (exit_free(data, "Wrong size for square"));

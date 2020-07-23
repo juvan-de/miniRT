@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/15 10:55:31 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:14:58 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:00:53 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void		calc_res_triangle(t_ray_res *res, t_ray *ray, t_object *triangle)
 
 	res->cords = vec_addition(ray->origin,
 				vec_double_mult(ray->direction, res->len));
-	res->color = int_to_rgb(triangle->color);
+	res->color = triangle->color;
 	vec[0] = vec_sub(triangle->cords, triangle->second_cord);
 	vec[1] = vec_sub(triangle->cords, triangle->third_cord);
 	res->normal = normalize_vector(crossproduct(vec[0], vec[1]));

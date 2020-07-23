@@ -6,10 +6,11 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/19 15:55:51 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 16:42:42 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:08:39 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../libft/libft.h"
 #include "../inc/minirt.h"
 
 t_color	shade_color_2(t_color color, double fraction)
@@ -34,6 +35,26 @@ t_color	int_to_rgb(int integer)
 	integer = (integer - (color.g * 256));
 	color.b = integer;
 	return (color);
+}
+
+int		colorcheck(char **array)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < 3)
+	{
+		j = 0;
+		while (array[i][j])
+		{
+			if (!ft_isdigit((int)array[i][j]))
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
 }
 
 int		arr_len(char **array)

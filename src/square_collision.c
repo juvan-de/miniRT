@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/02 15:18:23 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/17 14:19:55 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 16:00:47 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void		calc_res_square(t_ray_res *res, t_ray *ray, t_object *square)
 {
 	res->cords = vec_addition(ray->origin,
 					vec_double_mult(ray->direction, res->len));
-	res->color = int_to_rgb(square->color);
+	res->color = square->color;
 	if (vec_angle(ray->direction, square->vector) < M_PI_2)
 		res->normal = vec_double_mult(square->vector, -1);
 	else
