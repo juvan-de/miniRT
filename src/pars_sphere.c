@@ -6,12 +6,31 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:04:59 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 16:54:48 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:22:36 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 #include "../libft/libft.h"
+
+int			numbercheck(char *input)
+{
+	int		i;
+	char	*goodchars;
+
+	i = 0;
+	goodchars = "0123456789.";
+	if ((ft_strrchr(goodchars, (int)input[0]) == 0 &&
+						input[0] != '-') || input[0] == '.')
+		return (0);
+	while (input[i])
+	{
+		if (ft_strrchr(goodchars, (int)input[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
 static int	vectorcheck(char **array)
 {
@@ -91,10 +110,10 @@ void	pars_sphere(char *line, t_data *data)
 	t_object	*temp;
 
 	input = ft_split(line, ' ');
-	if (arr_len(input) != 4)
+	if (arr_len(input) != 4 || numbercheck(input[2]) == 0)
 	{
 		ft_free_array(input);
-		return (exit_free(data, "Incorrect number of arguments."));
+		return (exit_free(data, "Incorrect arguments for sphere"));
 	}
 	temp = malloc(sizeof(t_object));
 	if (!temp)

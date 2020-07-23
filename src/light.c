@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/06/17 16:37:27 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/19 16:02:24 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:29:20 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,12 +83,12 @@ int				full_light_calc(t_ray_res *res, t_data *data)
 	{
 		color = light_color(light->color, res->color);
 		intensity = light_intensity(res, data, light);
-		temp = shade_color_2(color, intensity);
+		temp = shade_color(color, intensity);
 		result = add_colors(result, temp);
 		light = light->next;
 	}
 	color = light_color(data->amb.color, res->color);
-	temp = shade_color_2(color, data->amb.light);
+	temp = shade_color(color, data->amb.light);
 	result = add_colors(result, temp);
 	return (calc_rgb_to_int(result));
 }

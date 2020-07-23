@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:29 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 16:49:59 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:25:16 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ void	pars_cylinder(char *line, t_data *data)
 	t_object	*temp;
 
 	input = ft_split(line, ' ');
-	if (arr_len(input) != 6)
+	if (arr_len(input) != 6 || numbercheck(input[3]) == 0 ||
+								numbercheck(input[4]) == 0)
 	{
 		ft_free_array(input);
-		return (exit_free(data, "Incorrect number of arguments."));
+		return (exit_free(data, "Incorrect arguments for cylinder"));
 	}
 	temp = malloc(sizeof(t_object));
 	if (!temp)

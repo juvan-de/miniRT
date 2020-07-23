@@ -6,14 +6,14 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/19 15:55:51 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 16:08:39 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:29:15 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/libft.h"
 #include "../inc/minirt.h"
 
-t_color	shade_color_2(t_color color, double fraction)
+t_color	shade_color(t_color color, double fraction)
 {
 	t_color	res;
 

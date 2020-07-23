@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:39 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 16:50:14 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:27:53 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,25 +20,6 @@ t_color		new_color(int r, int g, int b)
 	res.r = r;
 	res.g = g;
 	res.b = b;
-	return (res);
-}
-
-t_color		rgb_from_scene(char *input)
-{
-	int		temp;
-	int		temp2;
-	t_color	res;
-
-	temp = ft_atoi(input);
-	res.r = temp;
-	temp2 = ft_atoi(input + numlen_base(temp, 10) + 1);
-	res.g = temp2;
-	if (temp < 0 || temp > 255)
-		return (new_color(-1, 0, 0));
-	temp = ft_atoi(input + numlen_base(temp, 10) + numlen_base(temp2, 10) + 2);
-	res.b = temp;
-	if (temp < 0 || temp > 255 || temp2 < 0 || temp2 > 255)
-		return (new_color(-1, 0, 0));
 	return (res);
 }
 

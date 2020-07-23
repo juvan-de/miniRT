@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/11 14:12:50 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/20 17:37:41 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:24:58 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,11 @@ void	pars_res(char *line, t_data *data)
 		return (exit_free(data, "Res can only be set once."));
 	data->res.res_set = 1;
 	input = ft_split(line, ' ');
-	if (arr_len(input) != 3)
+	if (arr_len(input) != 3 || numbercheck(input[1]) == 0
+						|| numbercheck(input[2]) == 0)
 	{
 		ft_free_array(input);
-		exit_free(data, "wrong number of arguments");
+		exit_free(data, "wrong arguments for res");
 	}
 	data->res.res_x = ft_atoi(input[1]);
 	data->res.res_y = ft_atoi(input[2]);

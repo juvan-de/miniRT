@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/18 11:10:01 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 16:40:26 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/23 17:29:23 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,6 @@ typedef struct		s_data
 	t_object		*object;
 }					t_data;
 
-int					mlxtests(t_data *data);
 int					mlx(t_data *data);
 void				my_mlx_pixel_put(t_image *data, int x, int y, int color);
 int					hook_key(int keycode, t_data *data);
@@ -164,7 +163,7 @@ void				pars_square(char *line, t_data *data);
 void				pars_cylinder(char *line, t_data *data);
 void				object_add_back(t_data **data, t_object *new);
 t_color				scene_to_color(char *input);
-
+int					numbercheck(char *input);
 void				loop_pixels(t_data *data);
 t_vector			get_pixel(t_data *data, t_pixel pixel);
 int					cast_ray(t_vector vec, t_vector origin, t_data *data);
@@ -189,11 +188,9 @@ double				full_light_intens(t_ray_res *res, t_data *data);
 int					full_light_calc(t_ray_res *res, t_data *data);
 t_color				new_color(int r, int g, int b);
 
-int					numlen_base(int num, int base);
 double				ft_atoi_float(char *input);
 double				deg_to_rad(double degree);
-t_color				shade_color_2(t_color color, double fraction);
-t_vector			make_cords(double a, double b, double c);
+t_color				shade_color(t_color color, double fraction);
 int					arr_len(char **array);
 t_color				int_to_rgb(int integer);
 
