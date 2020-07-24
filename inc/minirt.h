@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/05/18 11:10:01 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 17:29:23 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/24 13:26:38 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ typedef struct		s_ray_res
 
 typedef struct		s_data
 {
+	int				bmp_true;
 	t_res			res;
 	t_mlx			mlx;
 	t_amb			amb;
