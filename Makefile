@@ -6,7 +6,7 @@
 #    By: juvan-de <juvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/27 11:29:28 by juvan-de      #+#    #+#                  #
-#    Updated: 2020/07/20 14:07:14 by julesvander   ########   odam.nl          #
+#    Updated: 2020/07/24 12:29:03 by julesvander   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ SRC_DIR = ./src/
 LIBFT = -L./libft -lft
 MLX = -Lmlx/ -lmlx -framework OpenGL -framework AppKit
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 
 all: $(NAME)
 
@@ -61,7 +61,7 @@ $(NAME): $(OBJECTS)
 	@cp libft/libft.a .
 	make -C mlx
 	@cp mlx/libmlx.dylib .
-	$(CC) $(MLX) -o $(NAME) $(OBJECTS) $(LIBFT)
+	$(CC) $(MLX) -o $(NAME) $(OBJECTS) $(LIBFT) $(CFLAGS)
 
 $(OBJ_DIR)%.o: $(SRC_DIR)%.c
 	@mkdir -p obj
@@ -75,6 +75,7 @@ clean:
 	$(MAKE) -C libft clean
 
 fclean: clean
+	$(MAKE) -C mlx clean
 	/bin/rm -f $(NAME) execute
 	/bin/rm -f libft/libft.a
 	/bin/rm -f libft.a libmlx.dylib
