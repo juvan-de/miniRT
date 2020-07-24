@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 14:47:55 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/23 18:30:17 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/24 13:04:50 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,22 @@ t_color			scene_to_color(char *input)
 {
 	t_color	res;
 	char	**array;
-	int		failcheck;
+	int		valid;
 
 	array = ft_split(input, ',');
-	failcheck = 0;
+	if (!array)
+		return (new_color(-1, 0, 0));
+	valid = 0;
 	if (arr_len(array) == 3 && colorcheck(array) == 1)
 	{
 		res.r = ft_atoi(array[0]);
 		res.g = ft_atoi(array[1]);
 		res.b = ft_atoi(array[2]);
 		if (res.r <= 255 && res.g <= 255 && res.b <= 255)
-			failcheck = 1;
+			valid = 1;
 	}
 	ft_free_array(array);
-	if (failcheck)
+	if (valid)
 		return (res);
 	return (new_color(-1, 0, 0));
 }
@@ -91,6 +93,8 @@ void			pars_amb(char *line, t_data *data)
 		return (exit_free(data, "Amb can only be set once."));
 	data->amb.amb_set = 1;
 	input = ft_split(line, ' ');
+	if (!input)
+		return (exit_free(data, "Malloc failed"));
 	if (arr_len(input) != 3)
 	{
 		ft_free_array(input);

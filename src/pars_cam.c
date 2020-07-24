@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 16:48:00 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/23 17:23:23 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/24 13:18:48 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@ void		pars_cam(char *line, t_data *data)
 	t_cam	*temp;
 
 	input = ft_split(line, ' ');
+	if (!input)
+		return (exit_free(data, "Malloc failed"));
 	if (arr_len(input) != 4 || numbercheck(input[3]) == 0)
 	{
 		ft_free_array(input);

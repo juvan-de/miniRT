@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/28 16:23:11 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 17:03:21 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/24 12:55:57 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,12 @@ t_mlx		mlx_initialize(t_data *data)
 	t_mlx	info;
 
 	info.mlx = mlx_init();
+	if (info.mlx == 0)
+		exit_free(data, "mlx failed");
 	info.mlx_win = mlx_new_window(info.mlx,
 					data->res.res_x, data->res.res_y, "MiniRT");
+	if (info.mlx_win == 0)
+		exit_free(data, "mlx failed");
 	return (info);
 }
 
@@ -71,6 +75,8 @@ int			mlx(t_data *data)
 
 	mlx = mlx_initialize(data);
 	img.img = mlx_new_image(mlx.mlx, data->res.res_x, data->res.res_y);
+	if (img.img == 0)
+		exit_free(data, "mlx failed");
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
 									&img.endian);
 	data->mlx = mlx;

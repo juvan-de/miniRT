@@ -6,14 +6,33 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:29 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 17:25:16 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/24 13:23:59 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 #include "../libft/libft.h"
 
-void	fill_cylinder(t_object *temp, char **input)
+int			numbercheck(char *input)
+{
+	int		i;
+	char	*goodchars;
+
+	i = 0;
+	goodchars = "0123456789.";
+	if ((ft_strrchr(goodchars, (int)input[0]) == 0 &&
+						input[0] != '-') || input[0] == '.')
+		return (0);
+	while (input[i])
+	{
+		if (ft_strrchr(goodchars, (int)input[i]) == 0)
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static void	fill_cylinder(t_object *temp, char **input)
 {
 	temp->type = "cy";
 	temp->cords = ft_cords_from_scene(input[1]);
@@ -30,6 +49,8 @@ void	pars_cylinder(char *line, t_data *data)
 	t_object	*temp;
 
 	input = ft_split(line, ' ');
+	if (!input)
+		return (exit_free(data, "Malloc failed"));
 	if (arr_len(input) != 6 || numbercheck(input[3]) == 0 ||
 								numbercheck(input[4]) == 0)
 	{

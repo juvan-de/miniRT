@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:19 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 16:50:18 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/24 13:20:46 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ void	pars_triangle(char *line, t_data *data)
 	t_object	*temp;
 
 	input = ft_split(line, ' ');
+	if (!input)
+		return (exit_free(data, "Malloc failed"));
 	if (arr_len(input) != 5)
 	{
 		ft_free_array(input);

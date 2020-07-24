@@ -6,14 +6,14 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 15:57:34 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/23 16:50:04 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/24 13:08:24 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 #include "../libft/libft.h"
 
-void	light_add_back(t_data **data, t_light *new)
+void		light_add_back(t_data **data, t_light *new)
 {
 	t_light	*light;
 
@@ -30,12 +30,22 @@ void	light_add_back(t_data **data, t_light *new)
 	light->next = new;
 }
 
-void	pars_light(char *line, t_data *data)
+static void	fill_light(t_light *temp, char **input)
+{
+	temp->cords = ft_cords_from_scene(input[1]);
+	temp->intensity = str_to_double(input[2]);
+	temp->color = scene_to_color(input[3]);
+	temp->next = 0;
+}
+
+void		pars_light(char *line, t_data *data)
 {
 	char	**input;
 	t_light	*temp;
 
 	input = ft_split(line, ' ');
+	if (!input)
+		return (exit_free(data, "Malloc failed"));
 	if (arr_len(input) != 4)
 	{
 		ft_free_array(input);
@@ -44,10 +54,7 @@ void	pars_light(char *line, t_data *data)
 	temp = malloc(sizeof(t_light));
 	if (!temp)
 		return (exit_free(data, "Malloc failed for light"));
-	temp->cords = ft_cords_from_scene(input[1]);
-	temp->intensity = str_to_double(input[2]);
-	temp->color = scene_to_color(input[3]);
-	temp->next = 0;
+	fill_light(temp, input);
 	light_add_back(&data, temp);
 	ft_free_array(input);
 	if (temp->cords.x == INFINITY)

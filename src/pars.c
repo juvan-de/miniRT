@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/11 14:12:50 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/23 17:50:03 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/24 13:17:18 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	pars_res(char *line, t_data *data)
 		return (exit_free(data, "Res can only be set once."));
 	data->res.res_set = 1;
 	input = ft_split(line, ' ');
+	if (!input)
+		return (exit_free(data, "Malloc failed"));
 	if (arr_len(input) != 3 || numbercheck(input[1]) == 0
 						|| numbercheck(input[2]) == 0)
 	{
@@ -65,14 +67,12 @@ void	pars_res(char *line, t_data *data)
 	data->res.res_y = ft_atoi(input[2]);
 	ft_free_array(input);
 	mlx_get_screen_size(data->mlx.mlx, &screen[0], &screen[1]);
-	if (data->res.res_x > screen[0])
+	if (data->res.res_x > screen[0] && !data->bmp_true)
 		data->res.res_x = screen[0];
-	if (data->res.res_y > screen[1])
+	if (data->res.res_y > screen[1] && !data->bmp_true)
 		data->res.res_y = screen[1];
-	if (data->res.res_x <= 0)
-		return (exit_free(data, "Wrong x-resolution."));
-	if (data->res.res_y <= 0)
-		return (exit_free(data, "Wrong y-resolution."));
+	if (data->res.res_x <= 0 || data->res.res_y <= 0)
+		return (exit_free(data, "Wrong resolution value."));
 }
 
 char	*remove_tabs(char *line)
