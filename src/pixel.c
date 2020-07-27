@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/07/19 16:03:47 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/20 12:14:37 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/27 14:23:58 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ t_vector	look_at(t_cam *camera, t_vector ray)
 	t_vector	up;
 
 	forward = vec_double_mult(camera->vector, -1);
-	right = crossproduct(normalize_vector(new_vector(0, 1, 0)), forward);
+	if (camera->vector.x == 0 && (camera->vector.y == 1 ||
+						camera->vector.y == -1) && camera->vector.z == 0)
+		right = crossproduct(new_vector(1, 0, 0), forward);
+	else
+		right = crossproduct(normalize_vector(new_vector(0, 1, 0)), forward);
 	up = crossproduct(forward, right);
 	matrix.forward = forward;
 	matrix.right = right;
