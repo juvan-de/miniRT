@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:29 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/24 13:23:59 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/27 19:45:27 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	fill_cylinder(t_object *temp, char **input)
 	temp->next = 0;
 }
 
-void	pars_cylinder(char *line, t_data *data)
+void		pars_cylinder(char *line, t_data *data)
 {
 	char		**input;
 	t_object	*temp;

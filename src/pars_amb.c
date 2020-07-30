@@ -6,12 +6,34 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 14:47:55 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/24 13:04:50 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/27 17:28:29 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/minirt.h"
 #include "../libft/libft.h"
+
+static int		doublecheck(char *input)
+{
+	int		j;
+	char	*goodchars;
+
+	goodchars = "0123456789.";
+	if ((ft_strrchr(goodchars, (int)input[0]) == 0) || input[0] == '.')
+		return (0);
+	j = 1;
+	while (input[j])
+	{
+		if (ft_strrchr(goodchars, (int)input[j]) == 0)
+			return (0);
+		if (input[j] == '.')
+			goodchars = "0123456789";
+		j++;
+	}
+	if (input[j - 1] == '.' && !(input[j]))
+		return (0);
+	return (1);
+}
 
 double			str_to_double(char *input)
 {
@@ -19,16 +41,11 @@ double			str_to_double(char *input)
 	int		temp;
 
 	temp = 0;
-	while (input[temp])
-	{
-		if (ft_isdigit((int)input[temp]) == 0 &&
-			input[temp] != '-' && input[temp] != '.')
-			return (-1);
-		temp++;
-	}
-	if (input[0] == '-' && ft_atoi(input + 3) != 0)
+	if (doublecheck(input) == 0)
 		return (-1);
 	temp = ft_atoi(input);
+	if (temp > 1)
+		return (-1);
 	res = ft_atoi(input + 2);
 	while (res >= 1)
 		res = res / 10;
