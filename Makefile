@@ -6,7 +6,7 @@
 #    By: juvan-de <juvan-de@student.codam.nl>         +#+                      #
 #                                                    +#+                       #
 #    Created: 2019/11/27 11:29:28 by juvan-de      #+#    #+#                  #
-#    Updated: 2020/07/24 12:29:03 by julesvander   ########   odam.nl          #
+#    Updated: 2020/07/30 23:38:58 by julesvander   ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ SRC_DIR = ./src/
 LIBFT = -L./libft -lft
 MLX = -Lmlx/ -lmlx -framework OpenGL -framework AppKit
 
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
