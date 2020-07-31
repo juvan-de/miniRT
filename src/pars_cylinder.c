@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:05:29 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/27 19:45:27 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/31 12:49:01 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,12 @@ int			numbercheck(char *input)
 	{
 		if (ft_strrchr(goodchars, (int)input[i]) == 0)
 			return (0);
+		if (input[i] == '.')
+			goodchars = "1234567890";
 		i++;
 	}
+	if (input[i - 1] == '.')
+		return (0);
 	return (1);
 }
 
@@ -37,8 +41,8 @@ static void	fill_cylinder(t_object *temp, char **input)
 	temp->type = "cy";
 	temp->cords = ft_cords_from_scene(input[1]);
 	temp->vector = ft_vector_from_scene(input[2]);
-	temp->size = ft_atoi(input[3]);
-	temp->height = ft_atoi(input[4]);
+	temp->size = ft_atoi_float(input[3]);
+	temp->height = ft_atoi_float(input[4]);
 	temp->color = scene_to_color(input[5]);
 	temp->next = 0;
 }

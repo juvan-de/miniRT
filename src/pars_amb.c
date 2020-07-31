@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/03/12 14:47:55 by juvan-de      #+#    #+#                 */
-/*   Updated: 2020/07/27 17:28:29 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/30 23:34:37 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ static int		doublecheck(char *input)
 {
 	int		j;
 	char	*goodchars;
+	int		ret;
 
+	ret = 1;
 	goodchars = "0123456789.";
 	if ((ft_strrchr(goodchars, (int)input[0]) == 0) || input[0] == '.')
 		return (0);
@@ -27,32 +29,41 @@ static int		doublecheck(char *input)
 		if (ft_strrchr(goodchars, (int)input[j]) == 0)
 			return (0);
 		if (input[j] == '.')
+		{
+			ret = 2;
 			goodchars = "0123456789";
+		}
 		j++;
 	}
 	if (input[j - 1] == '.' && !(input[j]))
 		return (0);
-	return (1);
+	return (ret);
 }
 
 double			str_to_double(char *input)
 {
 	double	res;
 	int		temp;
+	int		dotcheck;
 
 	temp = 0;
-	if (doublecheck(input) == 0)
+	res = 0;
+	dotcheck = doublecheck(input);
+	if (dotcheck == 0)
 		return (-1);
 	temp = ft_atoi(input);
 	if (temp > 1)
 		return (-1);
-	res = ft_atoi(input + 2);
-	while (res >= 1)
-		res = res / 10;
-	while (*(input + 2) == '0')
+	if (dotcheck == 2)
 	{
-		res = res / 10;
-		input++;
+		res = ft_atoi(input + 2);
+		while (res >= 1)
+			res = res / 10;
+		while (*(input + 2) == '0')
+		{
+			res = res / 10;
+			input++;
+		}
 	}
 	res += temp;
 	return (res);

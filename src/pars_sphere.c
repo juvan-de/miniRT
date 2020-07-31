@@ -6,7 +6,7 @@
 /*   By: juvan-de <juvan-de@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2020/04/15 17:04:59 by julesvander   #+#    #+#                 */
-/*   Updated: 2020/07/24 13:25:49 by julesvander   ########   odam.nl         */
+/*   Updated: 2020/07/31 12:47:33 by julesvander   ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ static int	vectorcheck(char **array)
 		{
 			if (ft_strrchr(goodchars, (int)array[i][j]) == 0)
 				return (0);
-			if (array[i][j] == '.')
+			if (array[i][j] == '.' || array[i][0] == '.')
 				goodchars = "0123456789";
 			j++;
 		}
+		if (array[i][j - 1] == '.')
+			return (0);
 		i++;
 	}
 	return (1);
@@ -95,7 +97,7 @@ static void	fill_sphere(t_object *temp, char **input)
 {
 	temp->type = "sp";
 	temp->cords = ft_cords_from_scene(input[1]);
-	temp->size = ft_atoi(input[2]);
+	temp->size = ft_atoi_float(input[2]);
 	temp->color = scene_to_color(input[3]);
 	temp->next = 0;
 }
